@@ -1,0 +1,134 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" routerLink="/" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/customer">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/items">Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/order">Order</a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " routerLink="/orders">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- <div class="container mt-2">
+    <form  class="form-control" [formGroup]="formValue" (ngSubmit)="loginUser()" >
+        <h1 class="text-center">Customer</h1>
+        <div class="text-center form-group">
+            <input type="text" class="m-2 form-control" name="cusName" formControlName="cusName"  placeholder="Customer Name">
+            <span style="color: red;" *ngIf="cusName && cusName.invalid && cusName.touched">*Customer Name is required</span>
+        </div>
+        <div class="text-center form-group">
+          <input type="text" class="m-2 my-3 form-control " name="city" formControlName="city"  placeholder="city">
+          <span style="color: red;" *ngIf="city && city.invalid && city.touched">*city is required</span>
+      </div>
+        <div class="text-center form-group">
+            <input type="email" class="m-2 my-3 form-control " name="email" formControlName="email"  placeholder="Email">
+            <span style="color: red;" *ngIf="email && email.invalid && email.touched">*email is required</span>
+        </div>
+        <div class="text-center form-group">
+            <input type="text" class="m-2 my-3 form-control " name="address" formControlName="address"  placeholder="address">
+            <span style="color: red;" *ngIf="address && address.invalid && address.touched">*address is required</span>
+        </div>
+        <div class="text-center form-group">
+          <input type="text" class="m-2 my-3 form-control " name="phone" formControlName="phone"  placeholder="phone">
+          <span style="color: red;" *ngIf="phone && phone.invalid && phone.touched">*phone is required</span>
+      </div>
+        <div class="text-center">
+            <button class="btn btn-danger m-3 " (click)="addCustomer()" [disabled]="loginForm.invalid" >Submit</button>
+        </div>
+    </form>
+</div> -->
+
+
+<div class="container mt-2">
+  <form class="form-control" [formGroup]="formValue">
+    <h1 class="text-center">Customer</h1>
+    <div class="text-center form-group">
+      <input type="text" class="m-2 form-control" name="cusName" formControlName="cusName" placeholder="Customer Name">
+
+    </div>
+    <div class="text-center form-group">
+      <input type="text" class="m-2 my-3 form-control " name="city" formControlName="city" placeholder="city">
+
+    </div>
+    <div class="text-center form-group">
+      <input type="email" class="m-2 my-3 form-control " name="email" formControlName="email" placeholder="Email">
+
+    </div>
+    <div class="text-center form-group">
+      <input type="text" class="m-2 my-3 form-control " name="address" formControlName="address" placeholder="address">
+
+    </div>
+    <div class="text-center form-group">
+      <input type="text" class="m-2 my-3 form-control " name="phone" formControlName="phone" placeholder="phone">
+
+    </div>
+    <div class="text-center">
+      <button class="btn btn-danger m-3 " *ngIf="showAdd"  (click)="addCustomer()">Submit</button>
+      <button type="button" *ngIf="showUpdate"  (click)="updateCustomerDetails()" 
+      class="btn btn-primary">Update</button>
+    </div>
+
+  </form>
+</div>
+
+
+
+
+
+
+
+<!-- table -->
+<hr>
+<div class="container mt-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of customerData ">
+        <td>{{row.id}}</td>
+        <td>{{row.cusName}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.phone}}</td>
+        <td class="text-right">
+          <button (click)="updateCustomer(row)" class="btn btn-success  pl-3 pr-3 mx-2" data-target="#exampleModal"><i
+              class="fa fa-pencil"></i> </button>
+          <button (click)="deleteCustomer(row)" class="btn btn-danger pl-3 "><i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

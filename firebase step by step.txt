@@ -1,0 +1,40 @@
+(1) angular project create
+(2) firebase install    (   npm i @angular/fire)
+(3)  firebase website and click new and click web
+(4)  fire base copy and past envirnment ts file 
+****
+firebaseConfig = {
+  apiKey: "AIzaSyD7GyYrYTYXyQbkLWF45utsb63S3SaRPFs",
+  authDomain: "fir-crud-crm.firebaseapp.com",
+  projectId: "fir-crud-crm",
+  storageBucket: "fir-crud-crm.appspot.com",
+  messagingSenderId: "146771372917",
+  appId: "1:146771372917:web:08145a4cdafdbd86af013c"
+};
+
+
+
+(5)  bootstrap linlk pase and icon link paste
+
+(6)   github github and past module file
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+
+in inmport file
+   provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),  (ye add karna parta h)
+    provideFirestore(() => getFirestore()),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
